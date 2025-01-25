@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 import 'package:wallpaper_gallery/model/image_model.dart';
 
-class ImageDetails extends StatelessWidget {
-  const ImageDetails({super.key, required this.image});
 
-  final ImageModel image;
+class ImageDetails extends StatelessWidget {
+  const ImageDetails({super.key, required this.imageModel});
+
+  final ImageModel imageModel;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +22,34 @@ class ImageDetails extends StatelessWidget {
                 bottomLeft: Radius.circular(40),
                 bottomRight: Radius.circular(40))),
         child: Image.network(
-          image.urls['small'],
+          imageModel.urls['small'],
           fit: BoxFit.cover,
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async{
-          // int location = WallpaperManager.BOTH_SCREEN; 
-          // String imageUrl = image.urls['small'];
-          // var file = await DefaultCacheManager().getSingleFile(imageUrl);
-          // await WallpaperManager.setWallpaperFromFile(file.path, location); 
+        onPressed: () async {
+
+          // try {
+          //   String imageUrl = image.urls['small'];
+
+          //   var file = await DefaultCacheManager().getSingleFile(imageUrl);
+
+          //   int location = WallpaperManager.BOTH_SCREEN;
+
+          //   bool result = await WallpaperManager.setWallpaperFromFile(
+          //     file.path,
+          //     location,
+          //   );
+
+          //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          //       content: Text(result
+          //           ? 'Wallpaper set successfully!'
+          //           : 'Failed to set wallpaper')));
+          // } catch (e) {
+          //   ScaffoldMessenger.of(context)
+          //       .showSnackBar(SnackBar(content: Text('Error : $e')));
+          // }
+
         },
         label: const Icon(Icons.wallpaper),
       ),

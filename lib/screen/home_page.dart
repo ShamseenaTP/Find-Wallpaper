@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                     return WallpaperImage(
                       currentImage: currentImage,
                       onTap: () {
-                        Get.to(() => ImageDetails(image: currentImage));
+                        Get.to(() => ImageDetails(imageModel: currentImage));
                       },
                     );
                   })
